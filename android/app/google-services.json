@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "335021923570",
+    "project_id": "harsh-todo-65331",
+    "storage_bucket": "harsh-todo-65331.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335021923570:android:89506996f581e09188846b",
+        "android_client_info": {
+          "package_name": "com.harshtodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335021923570-gcf5pemrub2ttmhedunn0c5pcvm7voch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt2COzjq0N9X2slrLXZtQ6usSqw0cQ6xE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335021923570-gcf5pemrub2ttmhedunn0c5pcvm7voch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
