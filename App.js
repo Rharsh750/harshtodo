@@ -13,13 +13,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import Tabs from './src/navigation/Tabs';
+import { navigationRef } from './src/navigation/RootNavigation';
 
 const Stack = createNativeStackNavigator();
 
-const App = ({navigation}) => {
+const App = () => {
   
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
         <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}} />
