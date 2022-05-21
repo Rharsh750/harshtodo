@@ -9,6 +9,7 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {TODODATA} from '../constant/Demo';
 
 const Todos = ({navigation}) => {
@@ -31,18 +32,20 @@ const Todos = ({navigation}) => {
     );
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-      <StatusBar backgroundColor={'red'} barStyle={'dark-content'} />
-      <View style={styles.container}>
-        <FlatList
-        contentContainerStyle={{paddingBottom: 110}}
-          data={TODODATA}
-          renderItem={renderItem}
-          // keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
-    </SafeAreaView>
+    <LinearGradient colors={['#c33764', '#1d2671']} style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, marginTop: 0}}>
+        <StatusBar backgroundColor={'#c33764'} barStyle={'light-content'} />
+        <View style={styles.container}>
+          <FlatList
+            contentContainerStyle={{paddingBottom: 110}}
+            data={TODODATA}
+            renderItem={renderItem}
+            // keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
+      </SafeAreaView>
+    </LinearGradient>
   );
 };
 
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
   },
   renderMain: {
     flex: 1,
-    backgroundColor: '#f9c2ff',
+    backgroundColor: 'rgba(189,195,199, 0.5)',
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 25,
@@ -68,9 +71,10 @@ const styles = StyleSheet.create({
     // backgroundColor: 'yellow'
   },
   msgTxt: {
-    color: '#000',
+    color: '#fff',
     fontSize: 18,
     fontWeight: '600',
+    opacity: 0.8
   },
   title: {
     flex: 2,
@@ -80,7 +84,7 @@ const styles = StyleSheet.create({
   },
   titleTxt: {
     fontSize: 17,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold'
   },
   date: {
@@ -90,7 +94,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   DateTxt: {
-    color: '#000',
+    color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
   },

@@ -1,55 +1,37 @@
 import * as React from 'react';
+import { useState } from 'react';
 import {StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Todos from '../screens/Todos';
 import Expenses from '../screens/Expenses';
 import Money from '../screens/Money';
 import Investment from '../screens/Investment';
+import CreateModal from '../componets/CreateModal';
+import { useNavigation } from '@react-navigation/native';
+// import CreatePost from '../screens/CreatePost';
+import * as RootNavigation from '../navigation/RootNavigation'
 
-function Home() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
-    </View>
-  );
+
+
+const CreatePost = () => {
+  <View>
+    <Text>Create Post</Text>
+  </View>}
+const onPressCreatePost = ({type, checkType}) => {
+  RootNavigation.navigate('CreateTask', {createType: type, checkType: checkType});
 }
 
-function Create() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>create!</Text>
-    </View>
-  );
-}
-
-function CreatePost() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>create!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-      <TouchableOpacity style={{backgroundColor: 'red'}}>
-        <Image source={require('../assets/plus.png')} style={{width: 150, height: 150}} />
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-const CreateCustomnBottom =({children, onpress}) => (
+const CreateCustomnBottom =({setModalVisibale, ModalVisibale}) => (
+  <>
     <TouchableOpacity
+    hitSlop={{bottom: 50}}
     style={{
       top: -30,
       justifyContent: 'center',
       alignItems: 'center',
       ...styles.shadow
     }}
-    onPress={() => alert("kkk")}
+    onPress={() => setModalVisibale(true)}
     >
       <View style={{
         width: 70,
@@ -58,7 +40,7 @@ const CreateCustomnBottom =({children, onpress}) => (
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: '#000',
+        borderColor: '#c33764',
         borderWidth: 4
       }}>
         <Image
@@ -72,11 +54,20 @@ const CreateCustomnBottom =({children, onpress}) => (
              />
       </View>
     </TouchableOpacity>
+    
+    <CreateModal
+      ModalVisibale={ModalVisibale}     
+      setModalVisibale={setModalVisibale}
+      onPressBtn={onPressCreatePost}
+    />
+    </>
   );
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = () => {
+const Tabs = ({navigation}) => {
+  // let navigation = useNavigation()
+  const [ModalVisibale, setModalVisibale] = useState(false)
   return (
     <Tab.Navigator
       screenOptions={{
@@ -94,12 +85,28 @@ const Tabs = () => {
           ...styles.shadow,
         },
       }}>
+        {/* <Tab.Screen
+        name="createPost"
+        component={CreatePost}
+        options={{
+          headerShown: false ,
+          tabBarIconStyle: {
+            // display: 'none',
+            position: 'absolute'
+          },
+          tabBarVisibilityAnimationConfig: false,
+          showIcon: false
+        }}
+      /> */}
       <Tab.Screen
         name="Todos"
         component={Todos}
         options={{
           headerShown: false ,
-          headerStyle: {backgroundColor: 'red'},
+          headerTransparent: true,
+          headerTintColor: '#fff',
+          headerTitleAlign: 'center',
+          headerTitle: 'My Todos',
           tabBarIcon: () => (
             <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
               <Image source={require('../assets/to-do-list.png')}
@@ -118,10 +125,7 @@ const Tabs = () => {
         name="Expenses"
         component={Expenses}
         options={{
-          headerStyle: {
-            borderBottomWidth: 1,
-            borderBottomColor: '#000',
-          },
+            headerShown: false,
           tabBarIcon: ({focused}) => (
             <View
               style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -142,7 +146,7 @@ const Tabs = () => {
       <Tab.Screen name='CreatePost' component={CreatePost}
         options={{
           tabBarIcon: ({focused}) => (
-            <CreateCustomnBottom  />
+            <CreateCustomnBottom setModalVisibale={setModalVisibale} ModalVisibale={ModalVisibale}  />
           )
         }}
       />
@@ -150,6 +154,7 @@ const Tabs = () => {
         name="Money"
         component={Money}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <View
               style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -170,6 +175,7 @@ const Tabs = () => {
         name="Investment"
         component={Investment}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <View
               style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
