@@ -13,9 +13,12 @@ import * as RootNavigation from '../navigation/RootNavigation'
 
 
 
-const CreatePost = ({navigation , type}) => {
-  console.log('type' , type)
-  RootNavigation.navigate('Home');
+const CreatePost = () => {
+  <View>
+    <Text>Create Post</Text>
+  </View>}
+const onPressCreatePost = ({type, checkType}) => {
+  RootNavigation.navigate('CreateTask', {createType: type, checkType: checkType});
 }
 
 const CreateCustomnBottom =({setModalVisibale, ModalVisibale}) => (
@@ -37,7 +40,7 @@ const CreateCustomnBottom =({setModalVisibale, ModalVisibale}) => (
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: '#000',
+        borderColor: '#c33764',
         borderWidth: 4
       }}>
         <Image
@@ -55,7 +58,7 @@ const CreateCustomnBottom =({setModalVisibale, ModalVisibale}) => (
     <CreateModal
       ModalVisibale={ModalVisibale}     
       setModalVisibale={setModalVisibale}
-      onPressBtn={CreatePost}
+      onPressBtn={onPressCreatePost}
     />
     </>
   );
@@ -100,7 +103,10 @@ const Tabs = ({navigation}) => {
         component={Todos}
         options={{
           headerShown: false ,
-          headerStyle: {backgroundColor: 'red'},
+          headerTransparent: true,
+          headerTintColor: '#fff',
+          headerTitleAlign: 'center',
+          headerTitle: 'My Todos',
           tabBarIcon: () => (
             <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
               <Image source={require('../assets/to-do-list.png')}
@@ -119,10 +125,7 @@ const Tabs = ({navigation}) => {
         name="Expenses"
         component={Expenses}
         options={{
-          headerStyle: {
-            borderBottomWidth: 1,
-            borderBottomColor: '#000',
-          },
+            headerShown: false,
           tabBarIcon: ({focused}) => (
             <View
               style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -151,6 +154,7 @@ const Tabs = ({navigation}) => {
         name="Money"
         component={Money}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <View
               style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -171,6 +175,7 @@ const Tabs = ({navigation}) => {
         name="Investment"
         component={Investment}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <View
               style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
