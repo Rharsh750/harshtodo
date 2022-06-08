@@ -33,7 +33,7 @@ const CreateModal = ({ModalVisibale, setModalVisibale, onPressBtn}) => {
                     />
                 <TouchableOpacity
                  style={{paddingHorizontal: 20 }}
-                 onPress={() => onPressBtn({type : 'to-do'})}
+                 onPress={() => onPressBtn({type : 'to-do', checkType: 'text'})}
                  >
                     <Text style={{...styles.texts, color: '#000', paddingVertical: 20}}>
                     Add Your To-do List
@@ -51,7 +51,7 @@ const CreateModal = ({ModalVisibale, setModalVisibale, onPressBtn}) => {
                         alignSelf: 'center',
                         }}
                     />
-                <TouchableOpacity style={{paddingHorizontal: 20 }}>
+                <TouchableOpacity style={{paddingHorizontal: 20 }} onPress={() => onPressBtn({type : 'Expensses', checkType: 'number'})}>
                     <Text style={{...styles.texts, color: '#000', paddingVertical: 20}}>
                     Add Your Expensses
                     </Text>
@@ -68,7 +68,7 @@ const CreateModal = ({ModalVisibale, setModalVisibale, onPressBtn}) => {
                         alignSelf: 'center',
                         }}
                     />
-                <TouchableOpacity style={{paddingHorizontal: 35 }}>
+                <TouchableOpacity style={{paddingHorizontal: 35 }} onPress={() => onPressBtn({type : 'Money', checkType: 'number'})}>
                     <Text style={{...styles.texts, color: '#000', paddingVertical: 20}}>
                     Add Your Money
                     </Text>
@@ -85,7 +85,7 @@ const CreateModal = ({ModalVisibale, setModalVisibale, onPressBtn}) => {
                         alignSelf: 'center',
                         }}
                     />
-                <TouchableOpacity style={{paddingHorizontal: 20 }}>
+                <TouchableOpacity style={{paddingHorizontal: 20 }} onPress={() => onPressBtn({type : 'Investment', checkType: 'number'})}>
                     <Text style={{...styles.texts, color: '#000', paddingVertical: 20}}>
                     Add Your Investment
                     </Text>

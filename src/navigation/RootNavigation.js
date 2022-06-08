@@ -6,7 +6,7 @@ export const navigationRef = createNavigationContainerRef()
 
 export function navigate(name, params) {
   if (navigationRef.isReady()) {
-    navigationRef.navigate(name);
+    navigationRef.navigate(name,params);
   }
 }
 

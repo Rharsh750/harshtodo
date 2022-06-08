@@ -14,6 +14,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import Tabs from './src/navigation/Tabs';
 import { navigationRef } from './src/navigation/RootNavigation';
+import CreateTask from './src/screens/CreateTask';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,8 @@ const App = () => {
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+        <Stack.Screen name="CreateTask" component={CreateTask}
+         options={{headerTitleAlign: 'center', headerTintColor:'#fff', headerTransparent: true }} />
         <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}} />
       </Stack.Navigator>
   </NavigationContainer>

@@ -30,14 +30,14 @@ export  const EXPENSEES = [
 
 
 export  const MONEY = [
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
-    {title: 'Salery Credited', money: 9000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
+    {title: 'Salery Credited', money: 100000},
   ]
 
 export const INVESTMENT = [
