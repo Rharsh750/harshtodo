@@ -16,31 +16,33 @@ import { firebase } from '@react-native-firebase/database';
 
 const CreateTask = ({navigation, route }) => {
   const [allData ,setAllData] = useState({
-    Title: '',
+    title: '',
     mainContent: '',
   })
   console.log('allData', allData)
   const createType = route?.params?.createType
   const checkType = route?.params?.checkType
-  const addData = async() => {
-    const setItems =   database().ref('/todos').push()
+  const addData = async () => {
+    const setItems = database().ref('/todos').push();
     const params = {
-      title: allData.Title,
+      title: allData.title,
       mainContent: allData.mainContent,
-      time: Date.now()
-    }
-    console.log('params', params)
-    await setItems.set(params).then(res => {
-      console.log('res', res)
-    }).catch(error => {
-      console.log('error', error)
-    })
-    
+      time: Date.now(),
+    };
+    console.log('params', params);
+    await setItems
+      .set(params)
+      .then(res => {
+        console.log('res', res);
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
     setAllData({
-      Title: '',
-      mainContent: ''
-    })
-  }
+      title: '',
+      mainContent: '',
+    });
+  };
   return (
     <LinearGradient colors={['#c33764', '#1d2671']} style={{flex: 1}}>
       <SafeAreaView style={{flex: 1, marginTop: 50}}>
@@ -62,7 +64,7 @@ const CreateTask = ({navigation, route }) => {
                   placeholderTextColor={'#fff'}
                   // value={allData.Title}
                   onChangeText={title => setAllData({
-                    ...allData, title:title
+                    ...allData,title:title
                   })}
                 />
               </View>
@@ -76,7 +78,7 @@ const CreateTask = ({navigation, route }) => {
                   placeholderTextColor={'#fff'}
                   // value={allData.mainContent}
                   onChangeText={mainContent => setAllData({
-                    ...allData,mainContent:mainContent
+                   ...allData,mainContent: mainContent 
                   })}
                 />
               </View>
