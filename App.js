@@ -1,5 +1,5 @@
  
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -15,10 +15,16 @@ import HomeScreen from './src/screens/HomeScreen';
 import Tabs from './src/navigation/Tabs';
 import { navigationRef } from './src/navigation/RootNavigation';
 import CreateTask from './src/screens/CreateTask';
+import SplashScreen from 'react-native-splash-screen'
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1000);
+  }, [])
   
   return (
     <NavigationContainer ref={navigationRef}>
